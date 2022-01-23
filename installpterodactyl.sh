@@ -7,4 +7,26 @@ NC='\033[0m'
 echo -e "${BLUE}Pterodactyl Install Script ${GREEN}by ${RED}OneAutumnSheath${NC}\n"
 echo -e "${BLUE}Twitter: @scorpiondevde"
 
-echo -e "${ROYAL}Please choose between the Panel or Wings Install: "
+PS3='Please choose between Panel (The Webinterface) or Wings (Node Instances): '
+options=("Panel Install" "Wings Install" "Quit")
+select opt in "${options[@]}"
+do 
+    case $opt in    
+        "Panel Install")
+            echo -e "${ROYAL}You choose the Panel Install.\n"
+            echo -e " \n"
+            echo -e "${ROYAL}Installing Pterodactyl Web Panel."
+            break
+            ;;
+        "Wings Install")
+            echo -e "${ROYAL}You choose the Wings Install.\n"
+            echo -e " \n"
+            echo -e "${ROYAL}Installing Pterodactyl Wings Node"
+           break
+           ;;
+        "Quit")
+            break
+            ;;
+            *) echo "${RED}invalid option $REPLY";;
+        esac
+done
